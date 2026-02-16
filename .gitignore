@@ -19,6 +19,7 @@ build/
 .env
 .env.local
 customer_support_agent/.env
+returns_agent/.env
 
 # IDE
 .vscode/
@@ -31,6 +32,9 @@ customer_support_agent/.env
 
 # Supabase
 supabase/.temp/
+
+# Runtime
+.returns_agent.pid
 
 # OS
 .DS_Store

@@ -1,6 +1,7 @@
 import os
 
 from google.adk.agents import LlmAgent
+from google.adk.agents.remote_a2a_agent import RemoteA2aAgent
 from google.adk.tools.mcp_tool import MCPToolset, StdioConnectionParams
 from mcp import StdioServerParameters
 
@@ -55,11 +56,20 @@ order_status_agent = LlmAgent(
     tools=[_supabase_mcp_toolset()],
 )
 
+returns_agent = RemoteA2aAgent(
+    name="returns_agent",
+    description=(
+        "Specialist for product returns: checking return eligibility "
+        "and initiating returns for eligible orders."
+    ),
+    agent_card="http://localhost:8001/.well-known/agent-card.json",
+)
+
 root_agent = LlmAgent(
     name="customer_support_router",
     model="gemini-2.5-flash",
     description="Customer support router that directs queries to specialists.",
     instruction=prompts.ROOT_AGENT_INSTRUCTION,
     tools=[tools.escalate_to_human],
-    sub_agents=[billing_agent, order_status_agent],
+    sub_agents=[billing_agent, order_status_agent, returns_agent],
 )

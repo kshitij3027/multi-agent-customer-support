@@ -2,7 +2,7 @@
 name = "customer-support-agent"
 version = "0.1.0"
 requires-python = ">=3.10"
-dependencies = ["google-adk", "mcp"]
+dependencies = ["google-adk[a2a]", "mcp", "python-dotenv"]
 
 [build-system]
 requires = ["setuptools"]

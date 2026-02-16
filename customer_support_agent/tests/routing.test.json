@@ -1,0 +1,112 @@
+[
+  {
+    "eval_id": "billing_overcharge",
+    "category": "billing",
+    "query": "I'm Alice Johnson. I was overcharged on my USB-C Cable order. Can you look into it?",
+    "expected_tool_use": [
+      {
+        "tool_name": "transfer_to_agent",
+        "tool_input": {
+          "agent_name": "billing_agent"
+        }
+      },
+      {
+        "tool_name": "execute_sql"
+      }
+    ],
+    "expected_intermediate_agent_responses": [
+      {
+        "agent_name": "billing_agent"
+      }
+    ]
+  },
+  {
+    "eval_id": "billing_invoice",
+    "category": "billing",
+    "query": "I'm Carol Chen. I need an invoice for my Enterprise Software License.",
+    "expected_tool_use": [
+      {
+        "tool_name": "transfer_to_agent",
+        "tool_input": {
+          "agent_name": "billing_agent"
+        }
+      },
+      {
+        "tool_name": "execute_sql"
+      }
+    ],
+    "expected_intermediate_agent_responses": [
+      {
+        "agent_name": "billing_agent"
+      }
+    ]
+  },
+  {
+    "eval_id": "returns_eligible",
+    "category": "returns",
+    "query": "I'd like to return my Wireless Earbuds Pro. My name is David Kim.",
+    "expected_tool_use": [
+      {
+        "tool_name": "transfer_to_agent",
+        "tool_input": {
+          "agent_name": "returns_agent"
+        }
+      },
+      {
+        "tool_name": "execute_sql"
+      },
+      {
+        "tool_name": "check_return_eligibility"
+      }
+    ],
+    "expected_intermediate_agent_responses": [
+      {
+        "agent_name": "returns_agent"
+      }
+    ]
+  },
+  {
+    "eval_id": "returns_ineligible",
+    "category": "returns",
+    "query": "I want to return my USB Hub. My name is Karen Brooks.",
+    "expected_tool_use": [
+      {
+        "tool_name": "transfer_to_agent",
+        "tool_input": {
+          "agent_name": "returns_agent"
+        }
+      },
+      {
+        "tool_name": "execute_sql"
+      },
+      {
+        "tool_name": "check_return_eligibility"
+      }
+    ],
+    "expected_intermediate_agent_responses": [
+      {
+        "agent_name": "returns_agent"
+      }
+    ]
+  },
+  {
+    "eval_id": "escalation_suspended",
+    "category": "escalation",
+    "query": "My account has been suspended without notice. I'm Jack Thompson and I have urgent pending orders. Please help!",
+    "expected_tool_use": [
+      {
+        "tool_name": "escalate_to_human"
+      }
+    ]
+  },
+  {
+    "eval_id": "escalation_urgent",
+    "category": "escalation",
+    "query": "I need immediate help, my enterprise account is locked and my team can't work. I'm Jack Thompson.",
+    "expected_tool_use": [
+      {
+        "tool_name": "escalate_to_human"
+      }
+    ]
+  }
+]
