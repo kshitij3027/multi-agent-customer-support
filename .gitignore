@@ -1,5 +1,6 @@
 # Project requirements (private)
 project_requirements.md
+.claude/
 
 # Python
 __pycache__/
@@ -23,6 +24,9 @@ build/
 .idea/
 *.swp
 *.swo
+
+# Supabase
+supabase/.temp/
 
 # OS
 .DS_Store
