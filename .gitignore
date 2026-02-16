@@ -18,12 +18,16 @@ build/
 # Environment variables
 .env
 .env.local
+customer_support_agent/.env
 
 # IDE
 .vscode/
 .idea/
 *.swp
 *.swo
+
+# ADK
+.adk/
 
 # Supabase
 supabase/.temp/
